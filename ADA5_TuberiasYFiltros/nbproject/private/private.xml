@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/AplicarDescuento.java</file>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/ComprobarDisponibilidad.java</file>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/CalcularSubtotal.java</file>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/CalcularImpuestos.java</file>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/ConfirmarPedido.java</file>
             <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/ADA5_TuberiasYFiltros.java</file>
-            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/Filtro.java</file>
-            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/Pedido.java</file>
-            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/validarDatosPedido.java</file>
-            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/verificarFraude.java</file>
+            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/productoPedido.java</file>
             <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/Producto.java</file>
-            <file>file:/C:/Users/ojeda/Documents/NetBeansProjects/ADA5_TuberiasYFiltros/src/ada5_tuberiasyfiltros/Exception.java</file>
         </group>
     </open-files>
 </project-private>

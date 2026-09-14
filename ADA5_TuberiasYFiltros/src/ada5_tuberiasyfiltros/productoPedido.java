@@ -9,13 +9,20 @@ package ada5_tuberiasyfiltros;
  * @author ojeda
  */
 public class productoPedido {
-     private String articulo;
+    private String articulo;
     private double precio;
     private int cantidadSolicitada;
     private int existenciaDisponibles;
 
     public productoPedido(){
 
+    }
+    
+    public productoPedido(String articulo, double precio, int cantidadSolicitada, int existenciaDisponibles){
+      articulo = this.articulo;
+      precio = this.precio;
+      cantidadSolicitada = this.cantidadSolicitada;
+      existenciaDisponibles = this.existenciaDisponibles;
     }
 
     public String getArticulo() {
