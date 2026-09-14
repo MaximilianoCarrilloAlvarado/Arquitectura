@@ -13,17 +13,26 @@ public class productoPedido {
     private double precio;
     private int cantidadSolicitada;
     private int existenciaDisponibles;
+    private Producto productoInventario;
 
     public productoPedido(){
 
     }
     
     public productoPedido(String articulo, double precio, int cantidadSolicitada, int existenciaDisponibles){
-      articulo = this.articulo;
-      precio = this.precio;
-      cantidadSolicitada = this.cantidadSolicitada;
-      existenciaDisponibles = this.existenciaDisponibles;
+            this.articulo = articulo;
+            this.precio = precio;
+            this.cantidadSolicitada = cantidadSolicitada;
+            this.existenciaDisponibles = existenciaDisponibles;
     }
+
+        public productoPedido(Producto productoInventario, int cantidadSolicitada) {
+                this(productoInventario.getNombreProducto(),
+                                productoInventario.getPrecio(),
+                                cantidadSolicitada,
+                                productoInventario.getExistencias());
+                this.productoInventario = productoInventario;
+        }
 
     public String getArticulo() {
         return articulo;
@@ -54,6 +63,10 @@ public class productoPedido {
     }
 
     public void setExistenciaDisponible(int existenciaDisponible) {
-////        this.existenciaDisponibles = existenciaDisponible;
+        this.existenciaDisponibles = existenciaDisponible;
+    }
+
+    public Producto getProductoInventario() {
+        return productoInventario;
     }
 }

@@ -14,9 +14,9 @@ public class Producto{
     private double precio;
     
     public Producto(String nombreProducto, int existencias, double precio){
-        nombreProducto = this.nombreProducto;
-        existencias = this.existencias;
-        precio = this.precio;
+        this.nombreProducto = nombreProducto;
+        this.existencias = existencias;
+        this.precio = precio;
     }
 
     public String getNombreProducto() {

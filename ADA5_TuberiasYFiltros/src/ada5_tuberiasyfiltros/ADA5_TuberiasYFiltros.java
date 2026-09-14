@@ -119,10 +119,8 @@ public class ADA5_TuberiasYFiltros {
                         scanner.nextLine();
 
                         productoPedido nuevoProducto = new productoPedido(
-                                productoSeleccionado.getNombreProducto(),              
-                                productoSeleccionado.getPrecio(),
-                                cantidad,
-                                productoSeleccionado.getExistencias()
+                            productoSeleccionado,
+                            cantidad
                         );
 
                         productosPedido.add(nuevoProducto);

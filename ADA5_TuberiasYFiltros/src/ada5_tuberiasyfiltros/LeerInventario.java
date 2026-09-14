@@ -18,19 +18,19 @@ public class LeerInventario {
 
     public List<Producto> leerArchivo() throws FileNotFoundException {
 
-    File inventarioArchivo = new File("inventario.txt");
+    File inventarioArchivo = new File("ADA5_TuberiasYFiltros\\Inventario.txt");
     List<Producto> inventario = new ArrayList<>();
 
     Scanner scanner = new Scanner(inventarioArchivo);
 
     while (scanner.hasNextLine()) {
 
-        String linea = scanner.nextLine();
+        String linea = scanner.nextLine().trim();
         String[] datos = linea.split(",");
 
-        String articulo = datos[0];
-        int existencia = Integer.parseInt(datos[1]);
-        double precio = Double.parseDouble(datos[2]);
+        String articulo = datos[0].replace("\uFEFF", "").trim();
+        int existencia = Integer.parseInt(datos[1].trim());
+        double precio = Double.parseDouble(datos[2].trim());
 
         Producto producto = new Producto(articulo, existencia, precio);
 

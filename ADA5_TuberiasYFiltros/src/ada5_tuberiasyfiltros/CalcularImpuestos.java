@@ -9,7 +9,7 @@ package ada5_tuberiasyfiltros;
  * @author ojeda
  */
 public class CalcularImpuestos implements Filtro {
-    private static final double TASA_IMPUESTO = 0.16; // No sé si volverlo una variable o dejarlo así
+    private static final double TASA_IMPUESTO = 0.16;
 
     @Override
     public Pedido procesarPedido(Pedido pedido) {

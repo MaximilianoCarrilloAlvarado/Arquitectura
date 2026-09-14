@@ -46,6 +46,17 @@ public class ConfirmarPedido implements Filtro{
                 - pedido.getDescuento()
                 + pedido.getImpuestos();
 
+        for (productoPedido productoPedido : pedido.getProductos()) {
+            Producto productoInventario = productoPedido.getProductoInventario();
+
+            if (productoInventario != null) {
+                productoInventario.setExistencias(
+                        productoInventario.getExistencias()
+                        - productoPedido.getCantidadSolicitada()
+                );
+            }
+        }
+
         pedido.setTotal(total);
         pedido.setEstado("Confirmado");
 
