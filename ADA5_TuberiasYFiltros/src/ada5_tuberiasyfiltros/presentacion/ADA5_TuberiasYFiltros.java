@@ -46,6 +46,7 @@ public class ADA5_TuberiasYFiltros {
             new ValidarDatosPedido(),
             new ComprobarDisponibilidad(),
             new CalcularSubtotal(),
+            new verificarFraude(),
             new AplicarDescuento(),
             new CalcularImpuestos(),
             new ConfirmarPedido()
