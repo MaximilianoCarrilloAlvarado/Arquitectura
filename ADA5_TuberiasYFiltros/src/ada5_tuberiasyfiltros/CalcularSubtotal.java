@@ -8,15 +8,21 @@ package ada5_tuberiasyfiltros;
  *
  * @author ojeda
  */
-public class CalcularImpuestos implements Filtro {
-    private static final double TASA_IMPUESTO = 0.16;
+public class CalcularSubtotal implements Filtro {
 
     @Override
     public Pedido procesarPedido(Pedido pedido) {
-        double importeGravable = pedido.getSubtotal() - pedido.getDescuento();
-        pedido.setImpuestos(importeGravable * TASA_IMPUESTO);
-        pedido.setTotal(pedido.getSubtotal() + pedido.getImpuestos());
         
+        double subtotal = 0;
+
+        for (productoPedido productoActual : pedido.getProductos()) {
+            subtotal += productoActual.getPrecio()
+                    * productoActual.getCantidadSolicitada();
+        }
+
+        pedido.setSubtotal(subtotal);
+
         return pedido;
     }
+    
 }

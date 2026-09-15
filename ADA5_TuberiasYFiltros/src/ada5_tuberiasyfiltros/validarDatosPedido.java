@@ -8,8 +8,7 @@ package ada5_tuberiasyfiltros;
  *
  * @author ojeda
  */
-public class validarDatosPedido implements Filtro{
-
+public class ValidarDatosPedido implements Filtro{
     @Override
     public Pedido procesarPedido(Pedido pedido) {
         if (pedido.getCliente() == null || pedido.getCliente().isBlank()) {
