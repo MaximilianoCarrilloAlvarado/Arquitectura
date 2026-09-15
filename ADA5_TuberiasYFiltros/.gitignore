@@ -1,0 +1,10 @@
+build/
+dist/
+bin/
+*.class
+*.jar
+*.war
+*.ear
+nbproject/private/
+nbproject/build-impl.xml
+**/.DS_Store

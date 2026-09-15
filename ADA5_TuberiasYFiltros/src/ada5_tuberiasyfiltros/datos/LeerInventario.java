@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ada5_tuberiasyfiltros;
+package ada5_tuberiasyfiltros.datos;
 
+import ada5_tuberiasyfiltros.dominio.Producto;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

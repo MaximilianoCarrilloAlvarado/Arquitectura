@@ -2,8 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package ada5_tuberiasyfiltros;
+package ada5_tuberiasyfiltros.presentacion;
 
+import ada5_tuberiasyfiltros.datos.LeerInventario;
+import ada5_tuberiasyfiltros.dominio.Pedido;
+import ada5_tuberiasyfiltros.dominio.Producto;
+import ada5_tuberiasyfiltros.dominio.productoPedido;
+import ada5_tuberiasyfiltros.negocio.AplicarDescuento;
+import ada5_tuberiasyfiltros.negocio.CalcularImpuestos;
+import ada5_tuberiasyfiltros.negocio.CalcularSubtotal;
+import ada5_tuberiasyfiltros.negocio.ComprobarDisponibilidad;
+import ada5_tuberiasyfiltros.negocio.ConfirmarPedido;
+import ada5_tuberiasyfiltros.negocio.Filtro;
+import ada5_tuberiasyfiltros.negocio.ValidarDatosPedido;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
