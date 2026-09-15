@@ -18,7 +18,7 @@ public class LeerInventario {
 
     public List<Producto> leerArchivo() throws FileNotFoundException {
 
-    File inventarioArchivo = new File("ADA5_TuberiasYFiltros\\Inventario.txt");
+    File inventarioArchivo = new File("Inventario.txt");
     List<Producto> inventario = new ArrayList<>();
 
     Scanner scanner = new Scanner(inventarioArchivo);
