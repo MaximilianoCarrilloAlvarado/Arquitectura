@@ -1,0 +1,15 @@
+﻿Laptop,8,18500,0
+ Mouse,25,450,0 
+Teclado,14,850,0 
+Monitor,11,4200,0 
+Audifonos,18,1250,0 
+Webcam,9,980,0 
+Impresora,6,3500,0 
+Tablet,12,6200,0
+ DiscoSSD,20,1800,0
+ MemoriaRAM,16,1450,0
+ Bocinas,13,1100,0 
+Microfono,7,2300,0 
+Router,22,1350,0 
+CamaraWeb,15,750,0
+ SillaOficina,5,4800,0
