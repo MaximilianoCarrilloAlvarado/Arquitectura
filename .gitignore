@@ -1,0 +1,11 @@
+# Compilación y distribución de proyectos Java/NetBeans
+**/build/
+**/dist/
+*.class
+
+# Archivos temporales de NetBeans
+**/.LCK*
+**/*~
+
+# Configuración privada local de NetBeans
+**/nbproject/private/

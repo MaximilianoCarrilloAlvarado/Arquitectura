@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ada6_capas;
+package ada6_capas.modelo;
 
 import java.util.List;
 
@@ -88,6 +88,19 @@ public class Pedido {
     public void setId(int id) {
         this.id = id;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Pedido {"
+                + "id=" + id
+                + ", cliente='" + cliente + '\''
+                + ", productos=" + productos
+                + ", subtotal=" + subtotal
+                + ", impuestos=" + impuestos
+                + ", descuento=" + descuento
+                + ", total=" + total
+                + ", estado='" + estado + '\''
+                + '}';
+    }
     
 }

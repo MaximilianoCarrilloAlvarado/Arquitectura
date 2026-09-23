@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ada6_capas;
+package ada6_capas.persistencia;
 
+import ada6_capas.modelo.Pedido;
+import ada6_capas.modelo.Producto;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -34,7 +36,10 @@ public class PedidoRepositoryArchivo implements PedidoRepository{
     
     public List<Producto> leerArchivo() throws FileNotFoundException {
 
-    File inventarioArchivo = new File("Inventario.txt");
+    File inventarioArchivo = new File("inventarioB.txt");
+    if (!inventarioArchivo.isFile()) {
+        inventarioArchivo = new File("ADA6_Capas", "inventarioB.txt");
+    }
     Scanner scanner = new Scanner(inventarioArchivo);
 
     while (scanner.hasNextLine()) {

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ada6_capas;
+package ada6_capas.modelo;
 
 /**
  *
@@ -51,6 +51,12 @@ public class Producto {
 
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
+    }
+
+    @Override
+    public String toString() {
+        return nombreProducto + " | Existencias: " + existencias
+                + " | Precio: " + precio + " | Cantidad: " + cantidad;
     }
     
 }

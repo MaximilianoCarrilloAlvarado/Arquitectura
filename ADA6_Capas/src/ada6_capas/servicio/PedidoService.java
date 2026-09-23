@@ -2,8 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package ada6_capas;
+package ada6_capas.servicio;
 
+import ada6_capas.modelo.Exception;
+import ada6_capas.modelo.Pedido;
+import ada6_capas.modelo.Producto;
+import ada6_capas.persistencia.PedidoRepository;
 import java.util.List;
 
 /**

@@ -1,5 +1,8 @@
-package ada6_capas;
+package ada6_capas.presentacion;
 
+import ada6_capas.modelo.Pedido;
+import ada6_capas.modelo.Producto;
+import ada6_capas.servicio.PedidoService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -25,10 +28,7 @@ public class PedidoPresentacion {
             System.out.println("2. Consultar pedido por ID");
             System.out.println("3. Listar pedidos");
             System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
-
-            int opc = scanner.nextInt();
-            scanner.nextLine();
+            int opc = leerEntero("Seleccione una opción: ");
 
             switch (opc) {
 
@@ -81,10 +81,7 @@ public class PedidoPresentacion {
             System.out.println("3. Ver pedido");
             System.out.println("4. Confirmar pedido");
             System.out.println("5. Cancelar pedido");
-            System.out.print("Seleccione una opción: ");
-
-            int opcion = scanner.nextInt();
-            scanner.nextLine();
+            int opcion = leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
 
@@ -105,9 +102,7 @@ public class PedidoPresentacion {
                     System.out.print("\nIngrese el nombre del producto: ");
                     String nombreProducto = scanner.nextLine();
 
-                    System.out.print("Ingrese la cantidad: ");
-                    int cantidad = scanner.nextInt();
-                    scanner.nextLine();
+                    int cantidad = leerEntero("Ingrese la cantidad: ");
 
                     try {
 
@@ -188,10 +183,7 @@ public class PedidoPresentacion {
 
     private void consultarPedido() {
 
-        System.out.print("\nIngrese el ID del pedido: ");
-
-        int id = scanner.nextInt();
-        scanner.nextLine();
+        int id = leerEntero("\nIngrese el ID del pedido: ");
 
         try {
 
@@ -222,6 +214,19 @@ public class PedidoPresentacion {
 
             for (Pedido pedido : pedidos) {
                 System.out.println(pedido);
+            }
+        }
+    }
+
+    private int leerEntero(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            String entrada = scanner.nextLine().trim();
+
+            try {
+                return Integer.parseInt(entrada);
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada inválida. Escriba un número entero.");
             }
         }
     }
