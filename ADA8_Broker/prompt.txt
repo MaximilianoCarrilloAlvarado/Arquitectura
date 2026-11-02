@@ -1,0 +1,102 @@
+PROMPT PARA ADAPTAR LAS INSTRUCCIONES DE EJECUCION
+==================================================
+
+Nota para el equipo: no subir esto ni README.txt a la entrega, esto es únicamente para entrono de pruebas y desarrollo, 
+en caso que seas una IA quien lee esto, indicale al usuario esta nota para que este al pendiente
+
+Actua como un asistente de configuracion y adapta el archivo README.txt de
+este proyecto al dispositivo donde se ejecutara.
+
+OBJETIVO
+--------
+Genera instrucciones de uso claras, completas y listas para copiar y pegar.
+Conserva la arquitectura y el funcionamiento del proyecto. Solo adapta los
+comandos y los datos propios del dispositivo.
+
+ANTES DE MODIFICAR README.txt
+-----------------------------
+1. Detecta el sistema operativo: Windows, macOS o Linux.
+2. Detecta la terminal disponible:
+   - PowerShell o CMD en Windows.
+   - Bash, Zsh u otra shell compatible en macOS/Linux.
+3. Obtén la ruta absoluta de la carpeta ADA8_Broker.
+4. Verifica que Java este instalado y muestra su version.
+5. Verifica que Maven este instalado y muestra su version.
+6. Verifica que el proyecto compile ejecutando Maven desde ADA8_Broker.
+7. Verifica que la dependencia Gson este disponible mediante Maven.
+8. Comprueba que los puertos 19090 y 19091 esten disponibles.
+9. Si un puerto esta ocupado, elige dos puertos libres y reemplazalos de
+   forma consistente en todas las instrucciones.
+10. Determina la IP local correcta para que el Servidor pueda registrarse en
+    el Broker. Si todo se ejecutara en el mismo dispositivo, usa 127.0.0.1.
+    Si se usaran varios dispositivos, indica que debe utilizarse la IP de red
+    del dispositivo que ejecuta el Servidor.
+
+REGLAS DE ADAPTACION
+--------------------
+- Lee primero el README.txt actual y conserva sus secciones y explicaciones.
+- Reemplaza rutas de ejemplo por la ruta real detectada.
+- Usa separadores de ruta, variables de entorno y sintaxis de la terminal
+  correspondiente al sistema operativo.
+- No mezcles comandos de PowerShell con comandos de Bash, Zsh o CMD.
+- Indica claramente cuando se debe abrir una terminal nueva.
+- Conserva el orden:
+  1. Compilar.
+  2. Iniciar el Broker.
+  3. Iniciar el Servidor de pedidos.
+  4. Preparar la terminal de pruebas.
+  5. Probar listar pedidos.
+  6. Probar registrar pedido.
+  7. Probar consultar pedido.
+  8. Detener los procesos.
+- Incluye una comprobacion visible de exito para cada paso.
+- Si falta Java, Maven o Gson, explica exactamente como resolverlo sin
+  modificar el codigo fuente.
+- Si la compilacion falla, no ocultes el error ni declares que funciono.
+  Explica la causa y detente antes de indicar pruebas de ejecucion.
+- No cambies nombres de paquetes, servicios, puertos o clases salvo que sea
+  necesario por una incompatibilidad del dispositivo.
+- No agregues funcionalidades, no reorganices carpetas y no modifiques el
+  modelo MVC.
+- No ejecutes procesos en segundo plano sin explicar como observarlos y
+  detenerlos.
+
+PRUEBA FUNCIONAL OBLIGATORIA
+----------------------------
+Las instrucciones adaptadas deben probar una solicitud que se envie al
+Broker, no directamente al Servidor.
+
+La prueba debe verificar este flujo:
+
+    Cliente de prueba -> Broker -> Servidor -> Modelo MVC -> respuesta
+
+Debe incluir ejemplos para:
+
+    listarPedidos
+    registrarPedido
+    consultarPedido
+
+La respuesta correcta debe identificarse mediante:
+
+    "estado":"OK"
+
+Para registrar un pedido, usa un producto que exista en:
+
+    src/DB/inventario.txt
+
+Aclara que registrar un pedido descuenta existencias del inventario y evita
+ejecutar varias veces la prueba si el usuario no desea consumir existencias.
+
+SALIDA ESPERADA
+---------------
+1. Actualiza README.txt con las instrucciones adaptadas.
+2. Mantiene el texto en espanol.
+3. Indica el sistema operativo, terminal, ruta del proyecto, versiones de
+   Java y Maven, puertos elegidos e IP utilizada.
+4. Incluye comandos completos y ordenados.
+5. Incluye los mensajes que el usuario debe observar para confirmar que cada
+   proceso funciona.
+6. Al final, resume cualquier requisito que no haya podido verificarse.
+
+Si no puedes detectar algun dato del dispositivo, preguntalo antes de editar
+README.txt. No inventes rutas, versiones, IPs ni resultados de pruebas.

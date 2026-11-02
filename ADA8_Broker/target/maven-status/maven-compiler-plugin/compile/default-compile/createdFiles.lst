@@ -1,0 +1,14 @@
+Broker\Broker.class
+Modelo\PedidoModelo.class
+Modelo\Pedido.class
+Vista\PedidoVista.class
+Broker\RegistroServicios.class
+Controlador\PedidoControlador.class
+Broker\Servidor.class
+Vista\PedidoVistaResumida.class
+Broker\ManejadorSolicitudServidor.class
+Modelo\Producto.class
+Modelo\ProductoInventario.class
+Broker\RegistroServicios$ServicioRegistrado.class
+Broker\ManejadorClientes.class
+Modelo\InventarioModelo.class

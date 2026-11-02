@@ -1,4 +1,13 @@
-C:\Users\ojeda\Documents\NetBeansProjects\ADA8_Broker\src\main\java\com\mycompany\ada8_broker\Broker.java
-C:\Users\ojeda\Documents\NetBeansProjects\ADA8_Broker\src\main\java\com\mycompany\ada8_broker\DireccionServidor.java
-C:\Users\ojeda\Documents\NetBeansProjects\ADA8_Broker\src\main\java\com\mycompany\ada8_broker\ManejadorClientes.java
-C:\Users\ojeda\Documents\NetBeansProjects\ADA8_Broker\src\main\java\com\mycompany\ada8_broker\RegistroServicios.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Broker\Broker.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Broker\ManejadorSolicitudServidor.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Modelo\InventarioModelo.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Vista\PedidoVistaResumida.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Controlador\PedidoControlador.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Broker\ManejadorClientes.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Modelo\PedidoModelo.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Modelo\Pedido.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Broker\RegistroServicios.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Vista\PedidoVista.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Broker\Servidor.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Modelo\Producto.java
+C:\Users\IGNITER\Documents\GitHub\Arquitectura\ADA8_Broker\src\Modelo\ProductoInventario.java
