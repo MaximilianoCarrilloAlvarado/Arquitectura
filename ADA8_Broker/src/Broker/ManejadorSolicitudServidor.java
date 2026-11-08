@@ -48,15 +48,30 @@ public class ManejadorSolicitudServidor implements Runnable {
             } catch (JsonParseException | IllegalArgumentException | IllegalStateException e) {
                 respuesta = crearError(obtenerServicio(linea), e.getMessage());
             }
+
+            String servicio = respuesta.has("servicio")
+                    ? respuesta.get("servicio").getAsString() : "?";
+            String estado = respuesta.has("estado")
+                    ? respuesta.get("estado").getAsString() : "?";
+            if ("OK".equals(estado)) {
+                System.out.println("  [OK] " + servicio + " -> respuesta enviada al Broker");
+            } else {
+                String mensaje = respuesta.has("mensaje")
+                        ? respuesta.get("mensaje").getAsString() : "";
+                System.out.println("  [ERROR] " + servicio + " -> " + mensaje);
+            }
+
             salida.println(GSON.toJson(respuesta));
         } catch (IOException e) {
-            System.err.println("Error de comunicacion con el cliente: " + e.getMessage());
+            System.err.println("Error de comunicacion con el Broker: " + e.getMessage());
         }
     }
 
     private JsonObject procesar(String linea) {
         JsonObject solicitud = JsonParser.parseString(linea).getAsJsonObject();
         String servicio = texto(solicitud, "servicio");
+        System.out.println("Solicitud recibida: " + servicio);
+
         JsonObject parametros = solicitud.has("parametros")
                 && solicitud.get("parametros").isJsonObject()
                 ? solicitud.getAsJsonObject("parametros") : new JsonObject();
@@ -92,6 +107,9 @@ public class ManejadorSolicitudServidor implements Runnable {
             }
 
             Pedido registrado = modelo.registrarPedido(new Pedido(cliente, productos));
+            System.out.println("    Pedido #" + registrado.getId()
+                    + " registrado para " + registrado.getCliente()
+                    + " (total $" + String.format(java.util.Locale.US, "%.2f", registrado.getTotal()) + ")");
             return crearOk("registrarPedido", GSON.toJsonTree(registrado));
         } catch (IllegalArgumentException | IllegalStateException e) {
             return crearError("registrarPedido", e.getMessage());
@@ -100,10 +118,12 @@ public class ManejadorSolicitudServidor implements Runnable {
 
     private JsonObject consultarPedido(JsonObject parametros) {
         try {
-            Pedido pedido = modelo.consultarPedido(entero(parametros, "id"));
+            int id = entero(parametros, "id");
+            Pedido pedido = modelo.consultarPedido(id);
             if (pedido == null) {
                 throw new IllegalArgumentException("Pedido no encontrado");
             }
+            System.out.println("    Pedido #" + id + " consultado");
             return crearOk("consultarPedido", GSON.toJsonTree(pedido));
         } catch (IllegalArgumentException | IllegalStateException e) {
             return crearError("consultarPedido", e.getMessage());
@@ -111,7 +131,9 @@ public class ManejadorSolicitudServidor implements Runnable {
     }
 
     private JsonObject listarPedidos() {
-        return crearOk("listarPedidos", GSON.toJsonTree(modelo.listarPedidos()));
+        List<Pedido> pedidos = modelo.listarPedidos();
+        System.out.println("    Listando " + pedidos.size() + " pedido(s)");
+        return crearOk("listarPedidos", GSON.toJsonTree(pedidos));
     }
 
     public static void enviarRegistro(String ipBroker, int puertoBroker,

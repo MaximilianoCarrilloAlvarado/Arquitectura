@@ -107,16 +107,26 @@ public class InventarioModelo {
     }
 
     private Path resolverArchivo() {
-        Path desdeFuenteActual = Paths.get("src", "DB", "inventario.txt");
-        if (Files.exists(desdeFuenteActual)) {
-            return desdeFuenteActual;
-        }
-        Path desdeRaizProyecto = Paths.get("ADA7_MVC", "DB", "inventario.txt");
-        if (Files.exists(desdeRaizProyecto)) {
-            return desdeRaizProyecto;
-        }
-        return Paths.get("DB", "inventario.txt");
+    // 1) Ruta relativa desde la raíz (modo consola con CWD = raíz)
+    Path desdeFuenteActual = Paths.get("src", "DB", "inventario.txt");
+    if (Files.exists(desdeFuenteActual)) {
+        return desdeFuenteActual;
     }
+
+    // 2) Subir directorios buscando src/DB/inventario.txt
+    //    (útil si el CWD es target/classes u otro subdirectorio)
+    Path actual = Paths.get("").toAbsolutePath();
+    for (int i = 0; i < 6 && actual != null; i++) {
+        Path candidato = actual.resolve(Paths.get("src", "DB", "inventario.txt"));
+        if (Files.exists(candidato)) {
+            return candidato;
+        }
+        actual = actual.getParent();
+    }
+
+    // 3) Fallback (creará/leerá DB/inventario.txt en el CWD)
+    return Paths.get("DB", "inventario.txt");
+}
 
     private String normalizar(String nombre) {
         return nombre.trim().toLowerCase(Locale.ROOT);

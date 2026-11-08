@@ -1,6 +1,6 @@
 # nombre|precio|existencia
 Laptop|1200.00|5
-Cuaderno|80.00|8
+Cuaderno|80.00|6
 Pluma|15.00|20
 Mouse|350.00|8
 Teclado|700.00|6

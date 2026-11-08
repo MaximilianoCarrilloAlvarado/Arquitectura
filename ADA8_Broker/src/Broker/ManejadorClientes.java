@@ -14,6 +14,8 @@ import java.io.OutputStreamWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ManejadorClientes implements Runnable {
 
@@ -61,6 +63,8 @@ public class ManejadorClientes implements Runnable {
         JsonObject parametros = objeto(solicitud, "parametros");
 
         switch (operacion) {
+             case "describe":
+                return describir(parametros);
             case "registrar":
                 return registrar(parametros);
             case "listar":
@@ -97,10 +101,55 @@ public class ManejadorClientes implements Runnable {
         }
         return correcto("listar", resultado);
     }
+    
+      private JsonObject describir(JsonObject parametros) {
+        JsonArray servicios = new JsonArray();
+        for (RegistroServicios.ServicioRegistrado s : registro.listar(null)) {
+            JsonObject o = new JsonObject();
+            o.addProperty("nombre", s.getNombre());
+            o.addProperty("ip", s.getIp());
+            o.addProperty("puerto", s.getPuerto());
+            o.add("parametros", catalogoParametros(s.getNombre()));
+            servicios.add(o);
+        }
+        return correcto("describe", servicios);
+    }
+
+    private static JsonArray catalogoParametros(String nombreServicio) {
+        Map<String, JsonArray> catalogo = new LinkedHashMap<>();
+        catalogo.put("registrarPedido", params(
+                campo("cliente", "string", true),
+                campo("productos", "array<{nombre:string, cantidad:int}>", true)));
+        catalogo.put("consultarPedido", params(
+                campo("id", "int", true)));
+        catalogo.put("listarPedidos", params());
+        catalogo.put("describe", params());
+
+        JsonArray definicion = catalogo.get(nombreServicio);
+        return definicion != null ? definicion : params();
+    }
+
+    private static JsonArray params(JsonObject... campos) {
+        JsonArray arr = new JsonArray();
+        for (JsonObject c : campos) {
+            arr.add(c);
+        }
+        return arr;
+    }
+
+    private static JsonObject campo(String nombre, String tipo, boolean obligatorio) {
+        JsonObject c = new JsonObject();
+        c.addProperty("nombre", nombre);
+        c.addProperty("tipo", tipo);
+        c.addProperty("obligatorio", obligatorio);
+        return c;
+    }
 
     private JsonObject ejecutar(JsonObject parametros) {
         String nombre = texto(parametros, "servicio");
-        JsonObject argumentos = objeto(parametros, "argumentos");
+        JsonObject argumentos = parametros.has("argumentos") && parametros.get("argumentos").isJsonObject()
+        ? parametros.getAsJsonObject("argumentos")
+        : new JsonObject();
         RegistroServicios.ServicioRegistrado destino = registro.buscar(nombre);
         if (destino == null) {
             return error("ejecutar", "Servicio no registrado");
