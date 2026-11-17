@@ -47,13 +47,14 @@ public class EmpleadoService {
     }
 
     public void eliminarEmpleados(List<Integer> idsEmpleados) {
-        if (idsEmpleados == null || idsEmpleados.isEmpty()) {
-            throw new IllegalArgumentException("Debe indicar al menos un empleado.");
-        }
-
-        idsEmpleados.forEach(this::eliminarEmpleado);
+    if (idsEmpleados == null || idsEmpleados.isEmpty()) {
+        throw new IllegalArgumentException(
+            "Debe indicar al menos un empleado."
+        );
     }
 
+    empleadoRepository.deleteAllById(idsEmpleados);
+}
     private void validarEmpleado(Empleado empleado) {
         if (empleado == null) {
             throw new IllegalArgumentException("Los datos del empleado son obligatorios.");
@@ -64,7 +65,7 @@ public class EmpleadoService {
         if (empleado.getNombre().length() > 100) {
             throw new IllegalArgumentException("El nombre no puede superar los 100 caracteres.");
         }
-        if (empleado.getEdad() == null || empleado.getEdad() < 0) {
+        if (empleado.getEdad() == null || empleado.getEdad() <= 0) {
             throw new IllegalArgumentException("La edad debe ser un valor mayor o igual a cero.");
         }
         if (empleado.getSalario() == null || empleado.getSalario().signum() < 0) {
