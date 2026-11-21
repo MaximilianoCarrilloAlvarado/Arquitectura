@@ -4,10 +4,14 @@ import crudempleados.model.Empleado;
 import crudempleados.repository.EmpleadoRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 @Service
 public class EmpleadoService {
+
+    private static final BigDecimal MAX_SALARIO = new BigDecimal("99999999.99");
 
     private final EmpleadoRepository empleadoRepository;
 
@@ -68,8 +72,18 @@ public class EmpleadoService {
         if (empleado.getEdad() == null || empleado.getEdad() <= 0) {
             throw new IllegalArgumentException("La edad debe ser un valor mayor o igual a cero.");
         }
-        if (empleado.getSalario() == null || empleado.getSalario().signum() < 0) {
+        BigDecimal salario = empleado.getSalario();
+        if (salario == null || salario.signum() < 0) {
             throw new IllegalArgumentException("El salario debe ser un valor mayor o igual a cero.");
+        }
+        if (salario.compareTo(MAX_SALARIO) > 0) {
+            throw new IllegalArgumentException("El salario no puede superar 99999999.99.");
+        }
+        try {
+            salario.setScale(2, RoundingMode.UNNECESSARY);
+        } catch (ArithmeticException exception) {
+            throw new IllegalArgumentException(
+                    "El salario no puede tener más de dos decimales.", exception);
         }
     }
 }
